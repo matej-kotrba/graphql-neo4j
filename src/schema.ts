@@ -1,69 +1,60 @@
 export const typeDefs = `#graphql
-  type Budget {
+  type Budget @node {
     totalBudget: Float!
     totalImpressions: Int!
     currency: String!
   }
 
-  type FrequencyCapping {
+  type FrequencyCapping @node {
     type: String!
     duration: String!
     maximumEvents: Int!
   }
 
-  type Dimensions {
+  type Dimensions @node {
     width: Int!
     height: Int!
   }
 
-  type Ad {
-    id: ID!
+  type Ad @node {
+    id: ID! @id
     type: String!
     displayType: String!
-    dimensions: Dimensions!
-    targetedAdSlotFormats: [AdSlotFormat!]
+    dimensions: [Dimensions!]! @relationship(type: "HAS_DIMENSIONS", direction: OUT)
   }
 
-  type AdSlotFormat {
-    format: String!
+  type TimeInterval @node {
+    from: [TimePoint!]! @relationship(type: "FROM", direction: OUT)
+    to: [TimePoint!]! @relationship(type: "TO", direction: OUT)
   }
 
-  type TimeInterval {
-    from: TimePoint!
-    to: TimePoint!
-  }
-
-  type TimePoint {
+  type TimePoint @node {
     hour: Int!
   }
 
-  type TimeTargeting {
+  type TimeTargeting @node {
     day: String!
     delivering: Boolean!
-    intervals: [TimeInterval!]!
+    intervals: [TimeInterval!]! @relationship(type: "HAS_INTERVAL", direction: OUT)
   }
 
-  type Targeting {
+  type Targeting @node {
     sites: [ID!]!
-    time: [TimeTargeting!]!
+    time: [TimeTargeting!]! @relationship(type: "HAS_TIME_TARGETING", direction: OUT)
   }
 
-  type Campaign {
-    campaignId: ID!
-    campaignDomain: CampaignDomain!
-    adsDomain: [Ad!]!
-    targetingDomain: Targeting!
+  type Campaign @node {
+    campaignId: ID! @id
+    campaignDomain: [CampaignDomain!]! @relationship(type: "HAS_DOMAIN", direction: OUT)
+    adsDomain: [Ad!]! @relationship(type: "HAS_AD", direction: OUT)
+    targetingDomain: [Targeting!]! @relationship(type: "HAS_TARGETING", direction: OUT)
   }
 
-  type CampaignDomain {
+  type CampaignDomain @node {
     startDate: String!
     endDate: String!
-    budget: Budget!
-    frequencyCapping: FrequencyCapping!
+    budget: [Budget!]! @relationship(type: "HAS_BUDGET", direction: OUT)
+    frequencyCapping: [FrequencyCapping!]! @relationship(type: "HAS_FREQUENCY_CAPPING", direction: OUT)
   }
 
-  type Query {
-    campaigns: [Campaign!]!
-    campaign(id: ID!): Campaign
-  }
 `;
