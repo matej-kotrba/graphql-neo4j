@@ -7,7 +7,10 @@ import { typeDefs } from "./schema";
 // Neo4j connection configuration
 const driver = neo4j.driver(
   process.env.NEO4J_URI || "neo4j://localhost:7687",
-  neo4j.auth.basic(process.env.NEO4J_USER || "neo4j", process.env.NEO4J_PASSWORD || "password")
+  neo4j.auth.basic(
+    process.env.NEO4J_USER || "neo4j",
+    process.env.NEO4J_PASSWORD || "developmentpassword"
+  )
 );
 
 // Create Neo4j GraphQL instance

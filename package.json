@@ -2,6 +2,9 @@
   "name": "graphql-neo4j",
   "module": "index.ts",
   "type": "module",
+  "scripts": {
+    "run-neo4j": "./docker.sh"
+  },
   "devDependencies": {
     "@types/bun": "latest"
   },
