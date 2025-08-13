@@ -2,7 +2,7 @@ import { Neo4jGraphQL } from "@neo4j/graphql";
 import { ApolloServer } from "@apollo/server";
 import { startStandaloneServer } from "@apollo/server/standalone";
 import neo4j from "neo4j-driver";
-import { typeDefs } from "./schema";
+import { typeDefs } from "./domains";
 
 // Neo4j connection configuration
 const driver = neo4j.driver(
