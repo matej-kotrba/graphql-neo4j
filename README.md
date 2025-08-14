@@ -89,7 +89,7 @@ bun run ./src/seed.ts
 Once everything is set up, you can run `bun ./src/index.ts` to access the GraphQL endpoint at:
 **http://localhost:4000** 🎯
 
-## ✅ You're All Set! 🦭
+### ✅ You're All Set! 🦭
 
 Your GraphQL Neo4j project is now running locally and ready for development.
 
