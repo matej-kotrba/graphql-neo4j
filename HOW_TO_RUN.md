@@ -50,22 +50,22 @@ cp .env.example .env
 
 Configure the connection with:
 
-- **Protocol:** `bolt`
+- **Protocol:** `neo4j`
 - **Username:** `neo4j`
 - **Password:** Your new password from step 5
 
-### 7. Access GraphQL Playground
-
-Once everything is set up, you can access the GraphQL endpoint at:
-**http://localhost:4000** 🎯
-
-### 8. Seed the Database
+### 7. Seed the Database
 
 Populate your database with initial data:
 
 ```bash
 bun run ./src/seed.ts
 ```
+
+### 8. Access GraphQL Playground
+
+Once everything is set up, you can run `bun ./src/index.ts` to access the GraphQL endpoint at:
+**http://localhost:4000** 🎯
 
 ## ✅ You're All Set! 🦭
 
