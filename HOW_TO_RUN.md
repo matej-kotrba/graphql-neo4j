@@ -1,13 +1,64 @@
-## How to run this project locally
+# 🚀 GraphQL Neo4j Project Setup Guide
 
-1. Install bun, you can do so for example via `npm install -g bun`
-2. Run docker script, just copy the code from the sh file and run it in the terminal
-3. Open port http://localhost:7474, you will have to sign in there, both username and password are 'neo4j'
-4. Then you will get prompted to update password, you can for example use the one used in the code 'developmentpassword'
-5. Then connect to the DB instance, use bolt as protocol and fill the username and new password
-6. For the GraphQL endpoint go to http://localhost:4000
-7. To update DB with the data run the seed.ts script like so `bun run ./src/seed.ts`
+Follow these steps to get your GraphQL Neo4j project running locally.
 
-You are all setup 🦭
+## 📋 Prerequisites
 
-### Data are not persisted throughout sessions
+Make sure you have Docker installed on your machine.
+
+## 🛠️ Installation Steps
+
+### 1. Install Bun Runtime
+Install Bun globally using npm:
+```bash
+npm install -g bun
+```
+
+### 2. Start Neo4j Database
+Run the Docker script to start the Neo4j database:
+```bash
+# Copy and run the commands from the Docker shell script
+docker run -d --name neo4j-container -p 7474:7474 -p 7687:7687 -e NEO4J_AUTH=neo4j/neo4j neo4j:latest
+```
+
+### 3. Configure Environment Variables
+Create your environment configuration:
+```bash
+cp .env.example .env
+```
+> 💡 **Tip:** You can customize the credentials in the `.env` file if needed.
+
+### 4. Access Neo4j Browser
+1. Open your browser and navigate to: **http://localhost:7474**
+2. Sign in with:
+   - **Username:** `neo4j`
+   - **Password:** `neo4j`
+
+### 5. Update Database Password
+1. You'll be prompted to change the password
+2. **Important:** Make sure the new password matches the one in your `.env` file
+
+### 6. Connect to Database
+Configure the connection with:
+- **Protocol:** `bolt`
+- **Username:** `neo4j`
+- **Password:** Your new password from step 5
+
+### 7. Access GraphQL Playground
+Once everything is set up, you can access the GraphQL endpoint at:
+**http://localhost:4000** 🎯
+
+### 8. Seed the Database
+Populate your database with initial data:
+```bash
+bun run ./src/seed.ts
+```
+
+## ✅ You're All Set! 🦭
+
+Your GraphQL Neo4j project is now running locally and ready for development.
+
+## ⚠️ Important Notes
+
+- **Data Persistence:** Data is not persisted between Docker container sessions
+- **Development Mode:** Remember to restart the container if you need fresh data
