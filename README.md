@@ -20,53 +20,82 @@ A modern GraphQL API for campaign management built with Neo4j graph database, pr
 
 ## 🚀 Quick Start
 
-### 1. Install Dependencies
+# 🚀 GraphQL Neo4j Project Setup Guide
+
+Follow these steps to get your GraphQL Neo4j project running locally.
+
+## 📋 Prerequisites
+
+Make sure you have Docker installed on your machine.
+
+## 🛠️ Installation Steps
+
+### 1. Install Bun Runtime
+
+Install Bun globally using npm:
+
 ```bash
-bun install
+npm install -g bun
 ```
 
 ### 2. Start Neo4j Database
-Run the Docker script to start Neo4j:
+
+Run the Docker script to start the Neo4j database:
+
 ```bash
 ./docker.sh
 ```
-*Or use the npm script:*
-```bash
-bun run run-neo4j
-```
 
-### 3. Configure Environment
-Create your environment file:
+### 3. Configure Environment Variables
+
+Create your environment configuration:
+
 ```bash
 cp .env.example .env
 ```
 
-**Default Neo4j Configuration:**
+> 💡 **Tip:** You can customize the credentials in the `.env` file if needed.
+
+### 4. Access Neo4j Browser
+
+1. Open your browser and navigate to: **http://localhost:7474**
+2. Sign in with:
+   - **Username:** `neo4j`
+   - **Password:** `neo4j`
+
+### 5. Update Database Password
+
+1. You'll be prompted to change the password
+2. **Important:** Make sure the new password matches the one in your `.env` file
+
+### 6. Connect to Database
+
+Configure the connection with:
+
+- **Protocol:** `neo4j`
 - **Username:** `neo4j`
-- **Password:** `developmentpassword` (as specified in `.env.example`)
-- **URI:** `neo4j://localhost:7687`
-- **Browser Interface:** http://localhost:7474
+- **Password:** Your new password from step 5
 
-> 💡 **Note:** You can customize these settings by modifying the `.env` file
+### 7. Seed the Database
 
-### 4. Seed the Database
-Populate with sample campaign data:
+Populate your database with initial data:
+
 ```bash
 bun run ./src/seed.ts
 ```
 
-### 5. Start the GraphQL Server
-```bash
-bun run ./src/index.ts
-```
+### 8. Access GraphQL Playground
 
-🎯 **GraphQL Playground:** http://localhost:4000
+Once everything is set up, you can run `bun ./src/index.ts` to access the GraphQL endpoint at:
+**http://localhost:4000** 🎯
 
----
+## ✅ You're All Set! 🦭
 
-## 📖 Detailed Setup Guide
+Your GraphQL Neo4j project is now running locally and ready for development.
 
-For a complete step-by-step setup guide with troubleshooting tips, see [HOW_TO_RUN.md](./HOW_TO_RUN.md).
+## ⚠️ Important Notes
+
+- **Data Persistence:** Data is not persisted between Docker container sessions
 
 ## GraphQL Schema
 
