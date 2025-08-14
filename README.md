@@ -1,55 +1,72 @@
-# GraphQL Neo4j Campaign Management API
+# 🚀 GraphQL Neo4j Campaign Management API
 
-This is a prototype application that provides a unified API for campaign management using GraphQL and Neo4j.
+A modern GraphQL API for campaign management built with Neo4j graph database, providing powerful relationship-based queries and real-time campaign analytics.
 
-## Technologies Used
+## ✨ Features
 
-- TypeScript
-- GraphQL (Apollo Server)
-- Neo4j
-- @neo4j/graphql for automatic schema generation
-- Bun as the JavaScript/TypeScript runtime
+- **GraphQL API** with automatic schema generation
+- **Neo4j Graph Database** for complex relationship queries
+- **Campaign Management** with detailed targeting and budget controls
+- **Real-time Analytics** through graph relationships
+- **TypeScript** for type safety and better developer experience
 
-## Setup
+## 🛠️ Technologies Used
 
-1. Install dependencies:
+- **TypeScript** - Type-safe JavaScript
+- **GraphQL** with Apollo Server - Modern API layer
+- **Neo4j** - Graph database for relationship-rich data
+- **@neo4j/graphql** - Automatic GraphQL schema generation from Neo4j
+- **Bun** - Fast JavaScript/TypeScript runtime
 
+## 🚀 Quick Start
+
+### 1. Install Dependencies
 ```bash
 bun install
 ```
 
-2. Start Neo4j using Docker:
-
+### 2. Start Neo4j Database
+Run the Docker script to start Neo4j:
 ```bash
-docker-compose up -d
+./docker.sh
+```
+*Or use the npm script:*
+```bash
+bun run run-neo4j
 ```
 
-This will start a Neo4j instance with the following default credentials:
-
-- Username: neo4j
-- Password: developmentpassword
-- URI: neo4j://localhost:7687
-- Browser interface: http://localhost:7474
-
-You can override these settings using environment variables:
-
-- NEO4J_URI
-- NEO4J_USER
-- NEO4J_PASSWORD
-
-3. Seed the database:
-
+### 3. Configure Environment
+Create your environment file:
 ```bash
-bun run src/seed.ts
+cp .env.example .env
 ```
 
-4. Start the server:
+**Default Neo4j Configuration:**
+- **Username:** `neo4j`
+- **Password:** `developmentpassword` (as specified in `.env.example`)
+- **URI:** `neo4j://localhost:7687`
+- **Browser Interface:** http://localhost:7474
 
+> 💡 **Note:** You can customize these settings by modifying the `.env` file
+
+### 4. Seed the Database
+Populate with sample campaign data:
 ```bash
-bun run src/index.ts
+bun run ./src/seed.ts
 ```
 
-The GraphQL server will be available at http://localhost:4000
+### 5. Start the GraphQL Server
+```bash
+bun run ./src/index.ts
+```
+
+🎯 **GraphQL Playground:** http://localhost:4000
+
+---
+
+## 📖 Detailed Setup Guide
+
+For a complete step-by-step setup guide with troubleshooting tips, see [HOW_TO_RUN.md](./HOW_TO_RUN.md).
 
 ## GraphQL Schema
 
