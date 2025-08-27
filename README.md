@@ -38,7 +38,15 @@ Install Bun globally using npm:
 npm install -g bun
 ```
 
-### 2. Start Neo4j Database
+### 2. Install Dependencies
+
+Install project dependencies:
+
+```bash
+bun install
+```
+
+### 3. Start Neo4j Database
 
 Run the Docker script to start the Neo4j database:
 
@@ -46,7 +54,7 @@ Run the Docker script to start the Neo4j database:
 ./docker.sh
 ```
 
-### 3. Configure Environment Variables
+### 4. Configure Environment Variables
 
 Create your environment configuration:
 
@@ -56,27 +64,27 @@ cp .env.example .env
 
 > 💡 **Tip:** You can customize the credentials in the `.env` file if needed.
 
-### 4. Access Neo4j Browser
+### 5. Access Neo4j Browser
 
 1. Open your browser and navigate to: **http://localhost:7474**
 2. Sign in with:
    - **Username:** `neo4j`
    - **Password:** `neo4j`
 
-### 5. Update Database Password
+### 6. Update Database Password
 
 1. You'll be prompted to change the password
 2. **Important:** Make sure the new password matches the one in your `.env` file
 
-### 6. Connect to Database
+### 7. Connect to Database
 
 Configure the connection with:
 
 - **Protocol:** `neo4j`
 - **Username:** `neo4j`
-- **Password:** Your new password from step 5
+- **Password:** Your new password from step 6
 
-### 7. Seed the Database
+### 8. Seed the Database
 
 Populate your database with initial data:
 
@@ -84,7 +92,7 @@ Populate your database with initial data:
 bun run ./src/seed.ts
 ```
 
-### 8. Access GraphQL Playground
+### 9. Access GraphQL Playground
 
 Once everything is set up, you can run `bun ./src/index.ts` to access the GraphQL endpoint at:
 **http://localhost:4000** 🎯
