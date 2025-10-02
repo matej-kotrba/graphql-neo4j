@@ -22,7 +22,7 @@ A modern GraphQL API for campaign management built with Neo4j graph database, pr
 
 # 🚀 GraphQL Neo4j Project Setup Guide
 
-Follow these steps to get your GraphQL Neo4j project running locally.
+Follow these steps to get your GraphQL Neo4j project running locally. 
 
 ## 📋 Prerequisites
 
